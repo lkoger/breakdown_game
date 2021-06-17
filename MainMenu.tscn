@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://MainMenu.gd" type="Script" id=1]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollideWithBall" type="CheckBox" parent="."]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 238.0
+margin_bottom = 34.0
+text = "Collide With Ball While Falling"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollideWithPaddle" type="CheckBox" parent="."]
+margin_left = 20.0
+margin_top = 40.0
+margin_right = 238.0
+margin_bottom = 64.0
+text = "Collide With Paddle"
+
+[node name="FallSlowly" type="CheckBox" parent="."]
+margin_left = 20.0
+margin_top = 70.0
+margin_right = 238.0
+margin_bottom = 94.0
+text = "Fall Slowly"
+
+[node name="Button" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 100.0
+margin_right = 61.0
+margin_bottom = 120.0
+text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="CollideWithBall" to="." method="_on_CollideWithBall_toggled"]
+[connection signal="toggled" from="CollideWithPaddle" to="." method="_on_CollideWithPaddle_toggled"]
+[connection signal="toggled" from="FallSlowly" to="." method="_on_FallSlowly_toggled"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -30,6 +30,10 @@ config/name="Break Down"
 run/main_scene="res://Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals.tscn"
+
 [input]
 
 right={

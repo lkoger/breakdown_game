@@ -16,4 +16,4 @@ func _process(delta):
 
 func _draw():
 	var rect = Rect2(-extents, extents * 2.0)
-	draw_rect(rect, Color.black)
+	draw_rect(rect, Color.steelblue)

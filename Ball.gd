@@ -17,7 +17,7 @@ func _ready():
 func _physics_process(delta):
 	if active:
 		velocity = direction * speed
-		var collision = move_and_collide(velocity * delta)
+		var collision = move_and_collide(velocity * delta, true, true, true)
 		if collision:
 			if collision.collider.has_method("get_bounce_direction"):
 				direction = collision.collider.get_bounce_direction(collision.position)
@@ -26,3 +26,5 @@ func _physics_process(delta):
 			
 			if collision.collider.has_method("dislodge"):
 				collision.collider.dislodge()
+		else:
+			move_and_collide(velocity * delta)
