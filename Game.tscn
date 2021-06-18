@@ -5,15 +5,15 @@
 [ext_resource path="res://DynamicRectangle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI.gd" type="Script" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 512, 10 )
-
 [sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 2 )
 
 [sub_resource type="Theme" id=3]
 default_font = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 512, 10 )
 
 [node name="Game" type="Node2D" groups=[
 "game",
@@ -27,26 +27,6 @@ color = Color( 0.180392, 0.294118, 0.298039, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="DynamicRectangle" parent="." instance=ExtResource( 4 )]
-position = Vector2( 512, 10 )
-extents = Vector2( 512, 10 )
-
-[node name="DynamicRectangle3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 10, 300 )
-extents = Vector2( 10, 300 )
-
-[node name="DynamicRectangle4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1014, 300 )
-extents = Vector2( 10, 300 )
-
-[node name="LoseArea" type="Area2D" parent="."]
-position = Vector2( 512, 610 )
-collision_layer = 0
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea"]
-shape = SubResource( 1 )
 
 [node name="UI" type="Control" parent="."]
 pause_mode = 2
@@ -78,6 +58,26 @@ bbcode_enabled = true
 bbcode_text = "Paused"
 text = "Paused"
 
+[node name="DynamicRectangle" parent="." instance=ExtResource( 4 )]
+position = Vector2( 512, 10 )
+extents = Vector2( 512, 10 )
+
+[node name="DynamicRectangle3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 10, 300 )
+extents = Vector2( 10, 300 )
+
+[node name="DynamicRectangle4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1014, 300 )
+extents = Vector2( 10, 300 )
+
+[node name="LoseArea" type="Area2D" parent="."]
+position = Vector2( 512, 610 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea"]
+shape = SubResource( 1 )
+
 [node name="PaddleSpawn" type="Position2D" parent="."]
 position = Vector2( 512, 500 )
 
@@ -87,5 +87,5 @@ position = Vector2( 512, 430 )
 [node name="BlocksSpawn" type="Position2D" parent="."]
 position = Vector2( 512, 100 )
 
-[connection signal="body_entered" from="LoseArea" to="." method="_on_LoseArea_body_entered"]
 [connection signal="restart" from="UI" to="." method="restart"]
+[connection signal="body_entered" from="LoseArea" to="." method="_on_LoseArea_body_entered"]

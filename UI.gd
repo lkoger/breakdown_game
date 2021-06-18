@@ -16,6 +16,7 @@ func _process(_delta):
 
 func _pause():
 	get_tree().paused = true
+	$PausedText.visible = not $StartPrompt.visible
 
 func _unpause():
 	get_tree().paused = false
