@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/art/meh.png" type="Texture" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.598837, 0.736364 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0181818 ), 0.0, 0.0, 0, 0 ]
+
+[node name="BackgroundCanvasLayer" type="CanvasLayer"]
+pause_mode = 2
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.109804, 0.14902, 0.219608, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="ColorRect"]
+position = Vector2( 512, 300 )
+amount = 128
+lifetime = 10.0
+preprocess = 10.0
+lifetime_randomness = 0.2
+texture = ExtResource( 1 )
+emission_shape = 2
+emission_rect_extents = Vector2( 512, 300 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 1.0
+scale_amount = 0.77
+scale_amount_curve = SubResource( 1 )

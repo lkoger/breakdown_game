@@ -15,12 +15,18 @@ _global_script_classes=[ {
 "path": "res://Ball.gd"
 }, {
 "base": "KinematicBody2D",
+"class": "Block",
+"language": "GDScript",
+"path": "res://DestructibleBlock.gd"
+}, {
+"base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Paddle.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
+"Block": "",
 "Player": ""
 }
 
@@ -33,6 +39,11 @@ config/icon="res://icon.png"
 [autoload]
 
 Globals="*res://Globals.tscn"
+Background="*res://Background.tscn"
+
+[display]
+
+window/size/resizable=false
 
 [input]
 
@@ -81,4 +92,5 @@ common/enable_pause_aware_picking=true
 
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

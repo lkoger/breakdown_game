@@ -1,8 +1,11 @@
 tool
 
 extends KinematicBody2D
+class_name Block
 
 signal destroyed
+
+export(Texture) var block_texture
 
 const TERMINAL_VELOCITY = 500.0
 var velocity := Vector2(0,0)
@@ -14,7 +17,7 @@ onready var falls_slowly = Globals.falls_slowly
 onready var collides_with_player = Globals.collides_with_player
 
 func _ready():
-	pass
+	$Sprite.texture = block_texture
 
 func _physics_process(delta):
 	if gravity_active:
@@ -26,6 +29,7 @@ func _physics_process(delta):
 
 func dislodge():
 	if not dislodged:
+		Globals.increment_blocks_knocked()
 		$Timer.start()
 		dislodged = true
 
@@ -38,10 +42,6 @@ func start_fall():
 func destroy():
 	emit_signal("destroyed")
 	queue_free()
-
-func hit_paddle(body):
-	print("Paddle Hit")
-	get_tree().call_group("game", "paddle_hit")
 
 
 func _on_Area2D_body_entered(body):

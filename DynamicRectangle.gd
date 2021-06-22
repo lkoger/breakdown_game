@@ -11,9 +11,11 @@ func _ready():
 	collision_shape.shape = shape
 	add_child(collision_shape)
 
-func _process(delta):
-	update()
-
-func _draw():
-	var rect = Rect2(-extents, extents * 2.0)
-	draw_rect(rect, Color.steelblue)
+#func _process(delta):
+#	update()
+#
+#func _draw():
+#	var rect = Rect2(-extents, extents * 2.0)
+#	draw_rect(rect, Color.black)
+#	rect = Rect2(-extents, (extents-Vector2(1,0)) * 2.0)
+#	draw_rect(rect, Color("f9d381"))

@@ -1,0 +1,108 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://SettingMenu.gd" type="Script" id=1]
+[ext_resource path="res://MenuTheme.tres" type="Theme" id=2]
+[ext_resource path="res://Redkost Comic.otf" type="DynamicFontData" id=3]
+[ext_resource path="res://Theme.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 3 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[node name="SettingMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlockSettings" type="RichTextLabel" parent="."]
+margin_left = 348.0
+margin_top = 180.0
+margin_right = 717.0
+margin_bottom = 220.0
+theme = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Block Properties[/center]"
+text = "Block Properties"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollideWithBall" type="CheckBox" parent="."]
+margin_left = 348.0
+margin_top = 230.0
+margin_right = 722.0
+margin_bottom = 260.0
+text = "collide with ball while falling"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollideWithPaddle" type="CheckBox" parent="."]
+margin_left = 348.0
+margin_top = 250.0
+margin_right = 603.0
+margin_bottom = 301.0
+text = "Collide with Paddle"
+
+[node name="FallSlowly" type="CheckBox" parent="."]
+margin_left = 348.0
+margin_top = 280.0
+margin_right = 516.0
+margin_bottom = 331.0
+text = "Falls slowly"
+
+[node name="BackButton" type="Button" parent="."]
+margin_left = 20.0
+margin_top = 10.0
+margin_right = 127.0
+margin_bottom = 59.0
+theme = ExtResource( 4 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicText" type="RichTextLabel" parent="."]
+margin_left = 348.0
+margin_top = 360.0
+margin_right = 717.0
+margin_bottom = 400.0
+theme = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]Music Volume[/center]"
+text = "Music Volume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicSlider" type="HSlider" parent="."]
+margin_left = 348.0
+margin_top = 400.0
+margin_right = 717.0
+margin_bottom = 416.0
+min_value = -25.0
+max_value = 10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="toggled" from="CollideWithBall" to="." method="_on_CollideWithBall_toggled"]
+[connection signal="toggled" from="CollideWithPaddle" to="." method="_on_CollideWithPaddle_toggled"]
+[connection signal="toggled" from="FallSlowly" to="." method="_on_FallSlowly_toggled"]
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="value_changed" from="MusicSlider" to="." method="_music_changed"]
