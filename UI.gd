@@ -1,9 +1,9 @@
-extends Control
+extends CanvasLayer
 
 signal restart
 
 func _ready():
-	$GameResults.modulate.a = 0.0
+	pass
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause"):
@@ -15,18 +15,37 @@ func _process(_delta):
 		_unpause()
 
 func _pause():
-	get_tree().paused = true
-	$PauseScreen.visible = not $StartPrompt.visible
+	if not $UI/GameResults.visible:
+		get_tree().paused = true
+		$UI/PauseScreen.visible = not $UI/StartPrompt.visible and not $UI/ContinuePrompt.visible
 
 func _unpause():
 	get_tree().paused = false
-	for prompt in get_children():
-		prompt.visible = false
+	$UI/PauseScreen.visible = false
+	$UI/StartPrompt.visible = false
+	$UI/ContinuePrompt.visible = false
 
 func start_screen():
-	$StartPrompt.visible = true
+	$UI/StartPrompt.modulate.a = 0.0
+	Globals.fade_in($UI/StartPrompt, 2.0)
+	$UI/StartPrompt.visible = true
 	_pause()
 
+func continue_screen():
+	$UI/ContinuePrompt.modulate.a = 0.0
+	Globals.fade_in($UI/ContinuePrompt, 2.0)
+	$UI/ContinuePrompt.visible = true
+	_pause()
+
+func results_screen():
+	$UI/GameResults.visible = true
+	$UI/GameResults/RestartButton.disabled = false
+	$UI/GameResults/QuitButon.disabled = false
+	$UI/GameResults/RoundsNumber.bbcode_text = "[right]" + str(Globals.current_round) + "[/right]"
+	$UI/GameResults/BlocksNumber.bbcode_text = "[right]" + str(Globals.blocks_knocked) + "[/right]"
+	Globals.fade_in($UI/GameResults, 2.0)
+#	$UI/GameResults/Tween.interpolate_property($UI/GameResults, "modulate", $UI/GameResults.modulate, Color($UI/GameResults.modulate.r, $UI/GameResults.modulate.g, $UI/GameResults.modulate.b, 1.0), 2.0)
+#	$UI/GameResults/Tween.start()
 
 func _on_ContinueButton_pressed():
 	_unpause()
@@ -39,15 +58,3 @@ func _on_RestartButton_pressed():
 func _on_QuitButon_pressed():
 	Globals.stop_music()
 	get_tree().change_scene("res://MainMenu.tscn")
-
-func fade_results_in():
-	print("called")
-	$GameResults.visible = true
-#	$GameResults/RoundsNumber.bbcode_text = "[right]" + str(Globals.current_round) + "[/right]"
-#	$GameResults/BlocksNumber.bbcode_text = "[right]" + str(Globals.blocks_knocked) + "[/right]"
-	$GameResults/Tween.interpolate_property($GameResults, "modulate", $GameResults.modulate, Color(modulate.r, modulate.g, modulate.b, 255.0), 2.0)
-	$GameResults/Tween.start()
-
-func fade_results_out():
-	$GameResults/Tween.interpolate_property($GameResults, "modulate", $GameResults.modulate, Color(modulate.r, modulate.g, modulate.b, 0.0), 2.0)
-	$GameResults/Tween.start()

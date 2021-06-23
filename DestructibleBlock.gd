@@ -47,3 +47,10 @@ func destroy():
 func _on_Area2D_body_entered(body):
 	if body is Player:
 		get_tree().get_nodes_in_group("game")[0].end_game()
+
+func fade_out_and_destroy():
+	collision_layer = 0
+	collision_mask = 0
+	$Area2D.collision_layer = 0
+	$Area2D.collision_mask = 0
+	Globals.fade_out_and_destroy(self, 2.0)

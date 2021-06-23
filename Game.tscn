@@ -6,14 +6,14 @@
 [ext_resource path="res://UI.gd" type="Script" id=5]
 [ext_resource path="res://Redkost Comic.otf" type="DynamicFontData" id=6]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 60
 outline_size = 3
 outline_color = Color( 0.0156863, 0.294118, 0.517647, 1 )
 font_data = ExtResource( 6 )
 
-[sub_resource type="Theme" id=6]
-default_font = SubResource( 5 )
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 50
@@ -24,7 +24,7 @@ font_data = ExtResource( 6 )
 [sub_resource type="Theme" id=4]
 default_font = SubResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 592, 10 )
 
 [node name="Game" type="Node2D" groups=[
@@ -37,15 +37,20 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
+[node name="NewRoundTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [node name="UICanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
 layer = 2
+script = ExtResource( 5 )
 
 [node name="UI" type="Control" parent="UICanvasLayer"]
 pause_mode = 2
 margin_right = 1024.0
 margin_bottom = 600.0
 theme = ExtResource( 2 )
-script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -57,8 +62,21 @@ margin_top = 250.0
 margin_right = 799.0
 margin_bottom = 300.0
 bbcode_enabled = true
-bbcode_text = "Press \"Enter\" to Start"
+bbcode_text = "[center]Press \"Enter\" to Start[/center]"
 text = "Press \"Enter\" to Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ContinuePrompt" type="RichTextLabel" parent="UICanvasLayer/UI"]
+visible = false
+margin_left = 225.0
+margin_top = 250.0
+margin_right = 840.0
+margin_bottom = 300.0
+bbcode_enabled = true
+bbcode_text = "[center]Press \"Enter\" to Continue[/center]"
+text = "Press \"Enter\" to Continue"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -84,7 +102,7 @@ margin_left = 389.0
 margin_top = 50.0
 margin_right = 635.0
 margin_bottom = 120.0
-theme = SubResource( 6 )
+theme = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "[center]Paused[/center]"
 text = "Paused"
@@ -120,17 +138,27 @@ __meta__ = {
 }
 
 [node name="GameResults" type="Control" parent="UICanvasLayer/UI"]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UICanvasLayer/UI/GameResults"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.54902 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ResultsText" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 348.0
-margin_top = 60.0
+margin_top = 150.0
 margin_right = 676.0
-margin_bottom = 120.0
+margin_bottom = 210.0
 theme = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]Results[/center]
@@ -144,18 +172,18 @@ __meta__ = {
 
 [node name="Rounds" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 102.0
-margin_top = 250.0
+margin_top = 340.0
 margin_right = 471.0
-margin_bottom = 310.0
+margin_bottom = 400.0
 bbcode_enabled = true
 bbcode_text = "[right]Rounds Fought :[/right]"
 text = "Rounds Fought :"
 
 [node name="Blocks" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 102.0
-margin_top = 160.0
+margin_top = 250.0
 margin_right = 471.0
-margin_bottom = 220.0
+margin_bottom = 310.0
 bbcode_enabled = true
 bbcode_text = "[right]Knocked Blocks :[/right]"
 text = "Knocked Blocks :"
@@ -165,9 +193,9 @@ __meta__ = {
 
 [node name="BlocksNumber" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 512.0
-margin_top = 160.0
+margin_top = 250.0
 margin_right = 717.0
-margin_bottom = 220.0
+margin_bottom = 310.0
 bbcode_enabled = true
 bbcode_text = "[right]000[/right]"
 text = "000"
@@ -177,12 +205,34 @@ __meta__ = {
 
 [node name="RoundsNumber" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 512.0
-margin_top = 250.0
+margin_top = 340.0
 margin_right = 717.0
-margin_bottom = 310.0
+margin_bottom = 400.0
 bbcode_enabled = true
 bbcode_text = "[right]000[/right]"
 text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RestartButton" type="Button" parent="UICanvasLayer/UI/GameResults"]
+margin_left = 758.0
+margin_top = 530.0
+margin_right = 1004.0
+margin_bottom = 579.0
+text = "Restart"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuitButon" type="Button" parent="UICanvasLayer/UI/GameResults"]
+margin_left = 20.0
+margin_top = 530.0
+margin_right = 266.0
+margin_bottom = 579.0
+text = "Quit"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -209,7 +259,7 @@ collision_layer = 0
 collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LoseArea"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="PaddleSpawn" type="Position2D" parent="."]
 position = Vector2( 512, 500 )
@@ -221,8 +271,10 @@ position = Vector2( 512, 430 )
 position = Vector2( 512, 80 )
 
 [connection signal="timeout" from="Timer" to="." method="_play_music"]
-[connection signal="restart" from="UICanvasLayer/UI" to="." method="restart"]
-[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/ContinueButton" to="UICanvasLayer/UI" method="_on_ContinueButton_pressed"]
-[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/RestartButton" to="UICanvasLayer/UI" method="_on_RestartButton_pressed"]
-[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/QuitButon" to="UICanvasLayer/UI" method="_on_QuitButon_pressed"]
+[connection signal="timeout" from="NewRoundTimer" to="." method="set_up_new_round"]
+[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/ContinueButton" to="UICanvasLayer" method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/RestartButton" to="UICanvasLayer" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="UICanvasLayer/UI/PauseScreen/QuitButon" to="UICanvasLayer" method="_on_QuitButon_pressed"]
+[connection signal="pressed" from="UICanvasLayer/UI/GameResults/RestartButton" to="UICanvasLayer" method="_on_RestartButton_pressed"]
+[connection signal="pressed" from="UICanvasLayer/UI/GameResults/QuitButon" to="UICanvasLayer" method="_on_QuitButon_pressed"]
 [connection signal="body_entered" from="LoseArea" to="." method="_on_LoseArea_body_entered"]

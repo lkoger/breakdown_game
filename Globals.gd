@@ -48,3 +48,18 @@ func increment_round():
 func reset_stats():
 	blocks_knocked = 0
 	current_round = 0
+
+func fade_in(node, time):
+	var tween = Tween.new()
+	add_child(tween)
+	tween.connect("tween_all_completed", tween, "queue_free")
+	tween.interpolate_property(node, "modulate", Color(node.modulate.r, node.modulate.g, node.modulate.b, 0.0), Color(node.modulate.r, node.modulate.g, node.modulate.b, 1.0), time)
+	tween.start()
+
+func fade_out_and_destroy(node, time):
+	var tween = Tween.new()
+	add_child(tween)
+	tween.connect("tween_all_completed", tween, "queue_free")
+	tween.connect("tween_all_completed", node, "queue_free")
+	tween.interpolate_property(node, "modulate", Color(node.modulate.r, node.modulate.g, node.modulate.b, 1.0), Color(node.modulate.r, node.modulate.g, node.modulate.b, 0.0), time)
+	tween.start()

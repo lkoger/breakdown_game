@@ -31,3 +31,8 @@ func get_bounce_direction(collision_position):
 	var direction_in_degrees = (relative_collision_x) / (extents.x * 2.0) * (90.0) - (45.0)
 	var direction_in_rads = deg2rad(direction_in_degrees)
 	return Vector2(cos(direction_in_rads), sin(direction_in_rads))
+
+func fade_out_and_destroy():
+	collision_layer = 0
+	collision_mask = 0
+	Globals.fade_out_and_destroy(self, 2.0)
