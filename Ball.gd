@@ -31,8 +31,8 @@ func _physics_process(delta):
 
 func fade_out_and_destroy():
 	collision_layer = 0
-	collision_mask = 0
-	Globals.fade_out_and_destroy(self, 2.0)
+	#collision_mask = 0
+	Globals.fade_out_and_destroy(self, 1.5)
 
 func destroy(object, key):
 	queue_free()

@@ -53,4 +53,4 @@ func fade_out_and_destroy():
 	collision_mask = 0
 	$Area2D.collision_layer = 0
 	$Area2D.collision_mask = 0
-	Globals.fade_out_and_destroy(self, 2.0)
+	Globals.fade_out_and_destroy(self, 1.5)
