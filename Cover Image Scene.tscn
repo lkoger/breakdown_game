@@ -1,0 +1,108 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Blocks.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Redkost Comic.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Cover Image Scene.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+outline_size = 12
+outline_color = Color( 0.137255, 0.286275, 0.364706, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[node name="Cover Image Scene" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Paddle" parent="." instance=ExtResource( 2 )]
+visible = false
+position = Vector2( 512, 500 )
+
+[node name="Ball" parent="." instance=ExtResource( 3 )]
+visible = false
+position = Vector2( 537.064, 443.576 )
+
+[node name="Blocks" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 80 )
+
+[node name="DestructibleBlock19" parent="Blocks" index="0"]
+position = Vector2( 51, 24.4949 )
+rotation = -0.0378988
+
+[node name="DestructibleBlock29" parent="Blocks" index="1"]
+position = Vector2( 51, 54.4949 )
+rotation = 0.0711906
+
+[node name="DestructibleBlock39" parent="Blocks" index="2"]
+position = Vector2( 51, 4.49492 )
+
+[node name="DestructibleBlock20" parent="Blocks" index="3"]
+rotation = 0.0256283
+
+[node name="DestructibleBlock30" parent="Blocks" index="4"]
+position = Vector2( 153, 42.9966 )
+rotation = -0.0365032
+
+[node name="DestructibleBlock31" parent="Blocks" index="7"]
+rotation = 0.0141982
+
+[node name="DestructibleBlock35" parent="Blocks" index="19"]
+rotation = 0.0231716
+
+[node name="DestructibleBlock26" parent="Blocks" index="21"]
+rotation = 0.0294255
+
+[node name="DestructibleBlock36" parent="Blocks" index="22"]
+position = Vector2( -255, 42.9966 )
+rotation = -0.0314851
+
+[node name="DestructibleBlock27" parent="Blocks" index="24"]
+position = Vector2( -153, 30.4882 )
+rotation = -0.0325324
+
+[node name="DestructibleBlock37" parent="Blocks" index="25"]
+position = Vector2( -153, 64.9831 )
+rotation = 0.0727105
+
+[node name="DestructibleBlock47" parent="Blocks" index="26"]
+position = Vector2( -153, 4.49492 )
+rotation = 0.0166016
+
+[node name="DestructibleBlock28" parent="Blocks" index="27"]
+position = Vector2( -51, 38.9898 )
+rotation = 0.0434452
+
+[node name="DestructibleBlock38" parent="Blocks" index="28"]
+position = Vector2( -51, 84.9492 )
+rotation = -0.180273
+
+[node name="DestructibleBlock48" parent="Blocks" index="29"]
+position = Vector2( -51, 8.98984 )
+rotation = -0.0304239
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+theme = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+margin_left = 225.0
+margin_top = 230.0
+margin_right = 799.0
+margin_bottom = 360.0
+custom_colors/default_color = Color( 0.584314, 0.878431, 0.8, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Breakdown[/center]"
+text = "Breakdown"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="Blocks"]
