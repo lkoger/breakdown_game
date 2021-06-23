@@ -33,6 +33,9 @@ func get_bounce_direction(collision_position):
 	return Vector2(cos(direction_in_rads), sin(direction_in_rads))
 
 func fade_out_and_destroy():
-	collision_layer = 0
-	collision_mask = 0
+	#collision_layer = 0
+	#collision_mask = 0
 	Globals.fade_out_and_destroy(self, 1.5)
+
+func shake():
+	$AnimationPlayer.play("shake")

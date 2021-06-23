@@ -46,6 +46,19 @@ pause_mode = 2
 layer = 2
 script = ExtResource( 5 )
 
+[node name="Round" type="RichTextLabel" parent="UICanvasLayer"]
+margin_left = 266.0
+margin_top = 200.0
+margin_right = 758.0
+margin_bottom = 250.0
+theme = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]Round[/center]"
+text = "Round"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="UI" type="Control" parent="UICanvasLayer"]
 pause_mode = 2
 margin_right = 1024.0
@@ -56,7 +69,6 @@ __meta__ = {
 }
 
 [node name="StartPrompt" type="RichTextLabel" parent="UICanvasLayer/UI"]
-visible = false
 margin_left = 266.0
 margin_top = 250.0
 margin_right = 799.0
@@ -120,17 +132,17 @@ flat = true
 
 [node name="RestartButton" type="Button" parent="UICanvasLayer/UI/PauseScreen"]
 margin_left = 389.0
-margin_top = 300.0
+margin_top = 290.0
 margin_right = 635.0
-margin_bottom = 349.0
+margin_bottom = 339.0
 text = "Restart"
 flat = true
 
 [node name="QuitButon" type="Button" parent="UICanvasLayer/UI/PauseScreen"]
 margin_left = 389.0
-margin_top = 360.0
+margin_top = 350.0
 margin_right = 635.0
-margin_bottom = 409.0
+margin_bottom = 399.0
 text = "Quit"
 flat = true
 __meta__ = {
@@ -156,9 +168,9 @@ __meta__ = {
 
 [node name="ResultsText" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 348.0
-margin_top = 150.0
+margin_top = 60.0
 margin_right = 676.0
-margin_bottom = 210.0
+margin_bottom = 120.0
 theme = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]Results[/center]
@@ -171,19 +183,28 @@ __meta__ = {
 }
 
 [node name="Rounds" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
-margin_left = 102.0
-margin_top = 340.0
+margin_left = 20.0
+margin_top = 210.0
 margin_right = 471.0
-margin_bottom = 400.0
+margin_bottom = 270.0
 bbcode_enabled = true
-bbcode_text = "[right]Rounds Fought :[/right]"
-text = "Rounds Fought :"
+bbcode_text = "[right]Rounds Completed :[/right]"
+text = "Rounds Completed :"
+
+[node name="Rounds2" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
+margin_left = 20.0
+margin_top = 260.0
+margin_right = 471.0
+margin_bottom = 320.0
+bbcode_enabled = true
+bbcode_text = "[right]Times Music Looped :[/right]"
+text = "Times Music Looped :"
 
 [node name="Blocks" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
 margin_left = 102.0
-margin_top = 250.0
+margin_top = 160.0
 margin_right = 471.0
-margin_bottom = 310.0
+margin_bottom = 220.0
 bbcode_enabled = true
 bbcode_text = "[right]Knocked Blocks :[/right]"
 text = "Knocked Blocks :"
@@ -192,10 +213,10 @@ __meta__ = {
 }
 
 [node name="BlocksNumber" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
-margin_left = 512.0
-margin_top = 250.0
+margin_left = 553.0
+margin_top = 160.0
 margin_right = 717.0
-margin_bottom = 310.0
+margin_bottom = 220.0
 bbcode_enabled = true
 bbcode_text = "[right]000[/right]"
 text = "000"
@@ -204,10 +225,22 @@ __meta__ = {
 }
 
 [node name="RoundsNumber" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
-margin_left = 512.0
-margin_top = 340.0
+margin_left = 553.0
+margin_top = 210.0
 margin_right = 717.0
-margin_bottom = 400.0
+margin_bottom = 270.0
+bbcode_enabled = true
+bbcode_text = "[right]000[/right]"
+text = "000"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicLoops" type="RichTextLabel" parent="UICanvasLayer/UI/GameResults"]
+margin_left = 553.0
+margin_top = 260.0
+margin_right = 717.0
+margin_bottom = 320.0
 bbcode_enabled = true
 bbcode_text = "[right]000[/right]"
 text = "000"
@@ -216,22 +249,22 @@ __meta__ = {
 }
 
 [node name="RestartButton" type="Button" parent="UICanvasLayer/UI/GameResults"]
-margin_left = 758.0
-margin_top = 530.0
-margin_right = 1004.0
-margin_bottom = 579.0
-text = "Restart"
+margin_left = 266.0
+margin_top = 470.0
+margin_right = 512.0
+margin_bottom = 519.0
+text = "New Game"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="QuitButon" type="Button" parent="UICanvasLayer/UI/GameResults"]
-margin_left = 20.0
-margin_top = 530.0
-margin_right = 266.0
-margin_bottom = 579.0
-text = "Quit"
+margin_left = 512.0
+margin_top = 470.0
+margin_right = 758.0
+margin_bottom = 519.0
+text = "Main Menu"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false

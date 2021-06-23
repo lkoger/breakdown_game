@@ -26,6 +26,7 @@ func start_game():
 	Globals.increment_round()
 	set_blocks()
 	set_ball_and_paddle()
+	$UICanvasLayer.play_round_animation()
 	$UICanvasLayer.start_screen()
 
 func new_round():
@@ -38,6 +39,7 @@ func set_up_new_round():
 	clear_blocks()
 	set_blocks()
 	set_ball_and_paddle()
+	$UICanvasLayer.play_round_animation()
 	$UICanvasLayer.continue_screen()
 	round_starting = false
 

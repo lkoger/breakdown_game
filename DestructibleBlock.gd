@@ -31,6 +31,7 @@ func dislodge():
 	if not dislodged:
 		Globals.increment_blocks_knocked()
 		$Timer.start()
+		$AnimationPlayer.play("shake")
 		dislodged = true
 
 func start_fall():
@@ -46,11 +47,12 @@ func destroy():
 
 func _on_Area2D_body_entered(body):
 	if body is Player:
+		body.shake()
 		get_tree().get_nodes_in_group("game")[0].end_game()
 
 func fade_out_and_destroy():
-	collision_layer = 0
-	collision_mask = 0
-	$Area2D.collision_layer = 0
-	$Area2D.collision_mask = 0
+	#collision_layer = 0
+	#collision_mask = 0
+#	$Area2D.collision_layer = 0
+#	$Area2D.collision_mask = 0
 	Globals.fade_out_and_destroy(self, 1.5)

@@ -48,12 +48,29 @@ func increment_round():
 func reset_stats():
 	blocks_knocked = 0
 	current_round = 0
+	music_loops = 0
+
+func fade_in_out(node, time):
+	fade_in(node, time)
+	var timer = Timer.new()
+	timer.one_shot = true
+	add_child(timer)
+	timer.connect("timeout", timer, "queue_free")
+	timer.connect("timeout", self, "fade_out", [node, time])
+	timer.start(time)
 
 func fade_in(node, time):
 	var tween = Tween.new()
 	add_child(tween)
 	tween.connect("tween_all_completed", tween, "queue_free")
 	tween.interpolate_property(node, "modulate", Color(node.modulate.r, node.modulate.g, node.modulate.b, 0.0), Color(node.modulate.r, node.modulate.g, node.modulate.b, 1.0), time)
+	tween.start()
+
+func fade_out(node, time):
+	var tween = Tween.new()
+	add_child(tween)
+	tween.connect("tween_all_completed", tween, "queue_free")
+	tween.interpolate_property(node, "modulate", Color(node.modulate.r, node.modulate.g, node.modulate.b, 1.0), Color(node.modulate.r, node.modulate.g, node.modulate.b, 0.0), time)
 	tween.start()
 
 func fade_out_and_destroy(node, time):
@@ -63,3 +80,9 @@ func fade_out_and_destroy(node, time):
 	tween.connect("tween_all_completed", node, "queue_free")
 	tween.interpolate_property(node, "modulate", Color(node.modulate.r, node.modulate.g, node.modulate.b, 1.0), Color(node.modulate.r, node.modulate.g, node.modulate.b, 0.0), time)
 	tween.start()
+
+
+func _on_AudioStreamPlayer_finished():
+	if current_stream == game_music:
+		increment_music_loops()
+		$AudioStreamPlayer.play()
