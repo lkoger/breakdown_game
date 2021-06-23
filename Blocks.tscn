@@ -20,3 +20,111 @@ block_texture = ExtResource( 2 )
 [node name="DestructibleBlock39" parent="." instance=ExtResource( 1 )]
 position = Vector2( 51, 0 )
 block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock20" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock30" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock40" parent="." instance=ExtResource( 1 )]
+position = Vector2( 153, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock21" parent="." instance=ExtResource( 1 )]
+position = Vector2( 255, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock31" parent="." instance=ExtResource( 1 )]
+position = Vector2( 255, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock41" parent="." instance=ExtResource( 1 )]
+position = Vector2( 255, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock22" parent="." instance=ExtResource( 1 )]
+position = Vector2( 357, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock32" parent="." instance=ExtResource( 1 )]
+position = Vector2( 357, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock42" parent="." instance=ExtResource( 1 )]
+position = Vector2( 357, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock23" parent="." instance=ExtResource( 1 )]
+position = Vector2( 459, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock33" parent="." instance=ExtResource( 1 )]
+position = Vector2( 459, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock43" parent="." instance=ExtResource( 1 )]
+position = Vector2( 459, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock24" parent="." instance=ExtResource( 1 )]
+position = Vector2( -459, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock34" parent="." instance=ExtResource( 1 )]
+position = Vector2( -459, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock44" parent="." instance=ExtResource( 1 )]
+position = Vector2( -459, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock25" parent="." instance=ExtResource( 1 )]
+position = Vector2( -357, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock35" parent="." instance=ExtResource( 1 )]
+position = Vector2( -357, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock45" parent="." instance=ExtResource( 1 )]
+position = Vector2( -357, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock26" parent="." instance=ExtResource( 1 )]
+position = Vector2( -255, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock36" parent="." instance=ExtResource( 1 )]
+position = Vector2( -255, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock46" parent="." instance=ExtResource( 1 )]
+position = Vector2( -255, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock27" parent="." instance=ExtResource( 1 )]
+position = Vector2( -153, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock37" parent="." instance=ExtResource( 1 )]
+position = Vector2( -153, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock47" parent="." instance=ExtResource( 1 )]
+position = Vector2( -153, 0 )
+block_texture = ExtResource( 4 )
+
+[node name="DestructibleBlock28" parent="." instance=ExtResource( 1 )]
+position = Vector2( -51, 20 )
+block_texture = ExtResource( 3 )
+
+[node name="DestructibleBlock38" parent="." instance=ExtResource( 1 )]
+position = Vector2( -51, 40 )
+block_texture = ExtResource( 2 )
+
+[node name="DestructibleBlock48" parent="." instance=ExtResource( 1 )]
+position = Vector2( -51, 0 )
+block_texture = ExtResource( 4 )
