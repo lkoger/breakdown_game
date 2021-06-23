@@ -73,7 +73,6 @@ func set_ball_and_paddle():
 func _on_LoseArea_body_entered(body):
 	if body is Block:
 		body.queue_free()
-		print("Block freed")
 	elif body is Ball:
 		clear_ball()
 		end_game()
